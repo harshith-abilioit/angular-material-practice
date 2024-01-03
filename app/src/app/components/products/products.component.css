@@ -1,0 +1,98 @@
+.shopify-header{
+    width: 97.5%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 2rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: aliceblue;
+    /* position: fixed;
+    z-index: 999; */
+}
+.shopify-header h1{
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    color: rgb(23, 25, 46);
+    /* margin-left: 2rem; */
+}
+.products-container{
+    padding: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.input-field{
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.example-full-width {
+    width: 30%;
+    /* border: 1px solid red; */
+
+  }
+  .input-field button{
+    border: none;
+    border: 1px solid rgb(0, 0, 0);
+    margin-bottom: 1.4rem;
+    padding: .8rem;
+    cursor: pointer;
+  }
+
+.card{
+    width: 20rem;
+    height: 35rem;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.image{
+    height: 12rem;
+    width: 12rem;
+    align-self: center;
+}
+.card h3{
+    max-height: 7ch;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 1rem;
+    align-self: flex-start;
+}
+.products-container div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+.price-para{
+    margin-top: 7px;
+}
+.description{
+    max-height: 3 * 1.2em; /* Assuming the line height is 1.2em, adjust accordingly */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* display: -webkit-box; */
+  line-clamp: 3; /* Number of lines to show */
+}
+.card p{
+    max-height: 5rem;
+    overflow: auto;
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.star-icon{
+    font-size: 1rem;
+    color: rgb(255, 230, 0);
+    margin: 8px 0 0 3px;
+}

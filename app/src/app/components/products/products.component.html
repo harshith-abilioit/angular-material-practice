@@ -1,0 +1,24 @@
+<nav class="shopify-header">
+    <h1>Shopify App</h1>
+  </nav>
+<div>
+    <div class="input-field">
+        <mat-form-field class="example-full-width">
+        <mat-label>Search Products</mat-label>
+        <input matInput #searchInput />
+        </mat-form-field>
+        <button (click)="searchedProducts(searchInput.value)" ><mat-icon aria-hidden="false" aria-label="Example search icon" fontIcon="search" class="search-icon"></mat-icon></button>
+    </div>
+    <div class="products-container">
+        <mat-card *ngFor="let item of searchedProductsList" class="card">
+            <img src="{{item.image}}" alt="not-found" class="image" />
+            <h3>{{item.title}}</h3>
+            <p class="description">{{item.description}}</p>
+            <div>
+                <p><b>Rating : </b>{{item.rating.rate}}<mat-icon aria-hidden="false" aria-label="Example star icon" fontIcon="star" class="star-icon"></mat-icon></p>
+                <p class="price-para"><b>Price : </b>{{item.price}}$</p>
+            </div>
+            <button mat-raised-button color="primary">Add to Cart</button>
+        </mat-card>
+    </div>
+</div>
