@@ -13,12 +13,17 @@ import { ProductsComponent } from './components/products/products.component'
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import { CartComponent } from './components/cart/cart.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,10 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatSelectModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
