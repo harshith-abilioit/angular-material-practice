@@ -2,7 +2,11 @@
     <h1>Shopify App</h1>
     <ul>
         <li><a routerLink="products">Products</a></li>
-        <li><a routerLink="cart">Cart</a></li>
+        <li class="cart-link">
+          <a routerLink="cart">Cart</a>
+          <!-- {{ itemsCount > 0 ? itemsCount : null }} -->
+          <h3 class="items-count" *ngIf="itemsCount > 0">{{ itemsCount }}</h3>
+        </li>
     </ul>
   </nav>
 <router-outlet></router-outlet>

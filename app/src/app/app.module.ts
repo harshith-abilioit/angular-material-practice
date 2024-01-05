@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { CartComponent } from './components/cart/cart.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

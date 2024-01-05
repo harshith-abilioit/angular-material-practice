@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable,BehaviorSubject } from 'rxjs';
+import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private snackBar: MatSnackBar) { }
 
   fetchData(): Observable<any> {
     return  this.http.get<any>('https://fakestoreapi.com/products');
@@ -72,6 +73,14 @@ export class ApiService {
   //   console.log(this.updatedCartList)
   // }
 
+  showSnackbar(message: string, config?: MatSnackBarConfig): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      verticalPosition: 'top', 
+      ...config,
+    });
+  }
+
   private cartItems: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
   getCartItems() {
@@ -85,6 +94,7 @@ export class ApiService {
     let addItem = (currentCart.find((ci:any)=>ci.id=== newItem.id)) 
     if(addItem===undefined){
       this.cartItems.next([...currentCart, newItem]);
+      this.showSnackbar('Item added to cart!');
     } else{
       alert('Item already added to cart')
     }

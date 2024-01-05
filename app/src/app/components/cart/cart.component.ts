@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-cart',
@@ -12,6 +12,10 @@ export class CartComponent implements OnInit{
   cart:any=[];
   total=0;
 
+  roundToTwoDecimalPlaces(value: number): number {
+    return Number(value.toFixed(2));
+  }
+
   ngOnInit(): void {
 
     this.cartService.getCartItems().subscribe(items => {
@@ -19,8 +23,7 @@ export class CartComponent implements OnInit{
       console.log(this.cart);
     });
 
-    this.totalPriceCal()
-    
+    this.totalPriceCal();    
 
   }
 
@@ -28,8 +31,9 @@ export class CartComponent implements OnInit{
     this.total= 0;
     this.cart.forEach((each:any)=>{
       this.total+=(each.price*each.quantity)
+      this.total = Number(this.total.toFixed(2));
     })
-    return Number(this.total.toFixed(2));
+    // return Number(this.total.toFixed(2));
   }
 
 

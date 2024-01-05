@@ -1,6 +1,7 @@
 <div class="cart-container">
     <div *ngIf="cart.length>0; then cartItems; else emptyCartView"></div>
     <ng-template #cartItems>
+        <div class="card-items">
         <mat-card *ngFor="let item of cart" class="card-item" >
             <div class="img-desp-cont">
                 <img src="{{item.image}}" alt="not found" />
@@ -25,6 +26,7 @@
             <h3><b>Grand Total : {{total}} $</b></h3>
             <button mat-raised-button color="accent">Proceed to Buy</button>
         </mat-card>
+    </div>
     </ng-template>
     <ng-template #emptyCartView>
         <div class="empty-cart-cont">

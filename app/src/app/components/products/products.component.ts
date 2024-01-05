@@ -13,8 +13,8 @@ export class ProductsComponent implements OnInit {
 
   productsList:any = [];
   searchedProductsList:any = [];
-  searchInput:any=''
-  sortProductsBy:any=''
+  searchInput:any='';
+  sortProductsBy:any='';
 
   ngOnInit(): void {
       this.api.fetchData().subscribe({
@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit {
       this.searchedProductsList = this.productsList.filter((eachItem:any)=>{
         return eachItem.title.toLowerCase().includes(this.searchInput.toLowerCase())
       })
-      this.searchInput=''
+      // this.searchInput=''
       console.log(this.searchedProductsList)
 
      }
