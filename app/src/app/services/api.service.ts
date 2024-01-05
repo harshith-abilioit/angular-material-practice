@@ -75,7 +75,7 @@ export class ApiService {
 
   showSnackbar(message: string, config?: MatSnackBarConfig): void {
     this.snackBar.open(message, 'Close', {
-      duration: 3000,
+      duration: 1000,
       verticalPosition: 'top', 
       ...config,
     });
@@ -89,7 +89,7 @@ export class ApiService {
 
   addItemToCart(item: any) {
     const currentCart = this.cartItems.value;
-    console.log(currentCart,'curr cart in service')
+    // console.log(currentCart,'curr cart in service')
     let newItem = {...item,quantity:1}
     let addItem = (currentCart.find((ci:any)=>ci.id=== newItem.id)) 
     if(addItem===undefined){

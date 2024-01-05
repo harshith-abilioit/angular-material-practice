@@ -3,7 +3,7 @@
         <div class="input-search">
             <mat-form-field class="example-full-width ">
             <mat-label>Search Products</mat-label>
-            <input matInput [(ngModel)]="searchInput" />
+            <input matInput [(ngModel)]="searchInput" (keyup.enter)="searchedProducts()" />
             </mat-form-field>
             <button (click)="searchedProducts()" ><mat-icon aria-hidden="false" aria-label="Example search icon" fontIcon="search" class="search-icon"></mat-icon></button>
         </div>
@@ -12,7 +12,7 @@
             <mat-form-field>
                 <mat-label>select</mat-label>
                 <mat-select [(ngModel)]="sortProductsBy"  (ngModelChange)="sortProducts()" >
-                    <!-- <mat-option [value]="'null'">null</mat-option> -->
+                    <mat-option [value]="'null'">select</mat-option>
                     <mat-option [value]="'asc'">Low - High</mat-option>
                     <mat-option [value]="'desc'">High - Low</mat-option>
                 </mat-select>
@@ -26,8 +26,8 @@
             <h3>{{item.title}}</h3>
             <p class="description">{{item.description}}</p>
             <div>
-                <p><b>Rating : </b>{{item.rating.rate}}<mat-icon aria-hidden="false" aria-label="Example star icon" fontIcon="star" class="star-icon"></mat-icon></p>
-                <p class="price-para"><b>Price : </b>{{item.price}}$</p>
+                <p class="rating"><b>Rating : {{item.rating.rate}}⭐</b></p>
+                <p class="price-para"><b>Price : {{item.price}} $</b></p>
             </div>
             <button mat-raised-button color="primary" (click)="addToCart(item)" >Add to Cart</button>
         </mat-card>
@@ -35,7 +35,7 @@
         <ng-template #loader><mat-progress-bar mode="indeterminate" style="width:84%"></mat-progress-bar></ng-template>
         <div *ngIf="productsList.length>0 && searchedProductsList.length===0 && searchInput!=='' then noresult"></div>
         <ng-template #noresult>
-            <h3 class="nores-head">No Results...</h3>
+            <h3 class="nores-head">No Results Found !!</h3>
         </ng-template>
     </div>
 </div>

@@ -7,9 +7,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  constructor( private api:ApiService ){
-    // this.searchedProducts(value)
-  }
+  constructor( private api:ApiService ){};
 
   productsList:any = [];
   searchedProductsList:any = [];
@@ -21,7 +19,6 @@ export class ProductsComponent implements OnInit {
         next: (response => {
           this.productsList = response;
           this.searchedProductsList=response;
-          console.log(this.productsList)
         }),
         error : (error =>{
           console.log(error)
@@ -30,30 +27,32 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  addToCart(item:any){
+    this.api.addItemToCart(item)
+   }
+
   searchedProducts(){
       this.searchedProductsList = this.productsList.filter((eachItem:any)=>{
         return eachItem.title.toLowerCase().includes(this.searchInput.toLowerCase())
       })
-      // this.searchInput=''
-      console.log(this.searchedProductsList)
+      // console.log(this.searchedProductsList)
 
-     }
+  }
     
-     sortProducts(){
+  sortProducts(){
       if(this.sortProductsBy=='asc'){
         this.searchedProductsList.sort((a:any, b:any) => a.price - b.price);
       }
       else if(this.sortProductsBy=='desc'){
         this.searchedProductsList.sort((a:any, b:any) => b.price - a.price)
       } 
-      // else{
-      //   console.log('null')
-      //   this.searchedProductsList = this.productsList
-      // }
-     }
+      else{
+        // console.log(this.searchedProductsList,"before")
+        // this.searchedProductsList = this.productsList;
+        // console.log(this.searchedProductsList,"after")
+      }
+  }
 
-     addToCart(item:any){
-      this.api.addItemToCart(item)
-     }
+     
 
 }
