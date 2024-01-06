@@ -9,13 +9,14 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    padding: 0 2rem 0 2rem;
 }
 .shopify-header h1{
     margin: 0px;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     /* margin-left: 2rem; */
 }
 
@@ -25,15 +26,15 @@
     justify-content: flex-end;
     align-items: center;
     width: 80%;
+    margin-top: 15px;
 }
 
 li{
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 .cart-link{
-    padding: 0 2rem 0 1rem;
-    /* padding: .7rem 2rem .7rem 2rem; */
+    padding: 0 2rem 0 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,13 +42,15 @@ li{
 .items-count{
     color:  rgb(0, 13, 201);
     margin: 0px;
-    padding: 0 0 14px 8px;
     border-radius: 45%;
-    font-size: 16px;
-    height: 12px;
+    font-size: 12px;
+    height: 18px;
     width: 18px;
     top: 10;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 a{
     font-size: 1rem;

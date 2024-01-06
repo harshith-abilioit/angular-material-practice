@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  passwordType:any = 'password';
 
+  showHidePassword(){
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+  }
 }

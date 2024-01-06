@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  passwordType:any = 'password';
+
+  showHidePassword(){
+    this.passwordType = this.passwordType === 'password' ? 'text' : 'password';
+  }
+
 }

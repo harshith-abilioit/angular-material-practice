@@ -6,8 +6,8 @@
         <li><a routerLink="products">Products</a></li>
         <li class="cart-link">
           <a routerLink="cart">Cart</a>
-          <h3 class="items-count" *ngIf="itemsCount > 0">{{ itemsCount }}</h3>
+          <p class="items-count" *ngIf="itemsCount > 0">{{ itemsCount }}</p>
         </li>
     </ul>
-  </nav>
+</nav>
 <router-outlet></router-outlet>

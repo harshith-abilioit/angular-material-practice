@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.input-field{
+.input-field-product{
     padding-top: 1rem;
     display: flex;
     justify-content: space-evenly;
@@ -42,11 +42,11 @@
     
 }
 
-  .input-field button{
+  .input-field-product button{
     border: none;
     border-bottom: 1px solid #8F8F8F;
     border-right: 1px solid #8F8F8F;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1.4rem;
     padding: .82rem;
     cursor: pointer;
     background-color: #F5F5F5;
