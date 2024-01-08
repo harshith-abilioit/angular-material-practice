@@ -44,7 +44,7 @@ import { RegisterComponent } from './components/register/register.component';
     MatSelectModule,
     MatProgressBarModule,
     MatSnackBarModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

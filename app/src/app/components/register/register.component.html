@@ -1,19 +1,22 @@
 <div class="container">
     <div class="form_area">
         <p class="title">SIGN UP</p>
-        <form action="">
+        <form action="" #register="ngForm">
             <div class="form_group">
                 <label class="sub_title" for="name">Name</label>
-                <input placeholder="Enter your full name" class="form_style" type="text">
+                <input placeholder="Enter your full name" class="form_style" type="text" ngModel #name="ngModel" name="username" required minlength="4" >
+                <p class="error-msg" *ngIf="name.touched&&name.errors?.['required']" >*username required</p>
+                <p class="error-msg" *ngIf="name.touched&&name.errors?.['minlength']" >*username must be 4 characters</p>
             </div>
             <div class="form_group">
                 <label class="sub_title" for="email">Email</label>
-                <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                <input placeholder="Enter your email" id="email" class="form_style" type="email" ngModel #email="ngModel" name="email" required>
+                <p class="error-msg" *ngIf="email.touched&&email.errors?.['required']" >*Email required</p>
             </div>
             <div class="form_group">
                 <label class="sub_title" for="password">Password</label>
                 <div class="login-pass-input">
-                    <input placeholder="Enter your password" id="password" class="form_style" [type]="passwordType">
+                    <input placeholder="Enter your password" id="password" class="form_style" [type]="passwordType"  ngModel #pwd="ngModel" name="password"  required minlength="6" >
                     <button class="show-hide" (click)="showHidePassword()">
                       <button *ngIf="passwordType === 'password'" >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
@@ -29,10 +32,12 @@
                         </svg>
                     </button>
                     </button>
-                  </div>
+                </div>
+                <p class="error-msg" *ngIf="pwd.touched&&pwd.errors?.['required']" >*password required</p>
+                <p class="error-msg" *ngIf="pwd.touched&&pwd.errors?.['minlength']" >*password must be 6 characters</p>
             </div>
             <div>
-                <button class="btn-signup">SIGN UP</button>
+                <button class="btn-signup" (click)="submit(register)" >SIGN UP</button>
                 <p>Have an Account? <a class="link" routerLink="/login">Login Here!</a></p>
             </div>
         </form>

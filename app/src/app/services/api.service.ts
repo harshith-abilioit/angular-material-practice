@@ -75,7 +75,7 @@ export class ApiService {
 
   showSnackbar(message: string, config?: MatSnackBarConfig): void {
     this.snackBar.open(message, 'Close', {
-      duration: 1000,
+      duration: 3000,
       verticalPosition: 'top', 
       ...config,
     });
