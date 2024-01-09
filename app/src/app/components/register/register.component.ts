@@ -36,12 +36,12 @@ export class RegisterComponent{
       .subscribe(
         response => {
           if(response.status===200){
+            this.showSnackbar(response.message);
             this.router.navigate(['/login']);
           }
         },
         error => {
           this.showSnackbar(error.error.message);
-        
         }
       );
       // this.registerForm.setValue({
