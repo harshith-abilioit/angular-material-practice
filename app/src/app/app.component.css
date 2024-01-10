@@ -9,7 +9,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    padding: 0 2rem 0 2rem;
+    padding: 2rem;
 }
 .shopify-header h1{
     margin: 0px;
@@ -25,8 +25,34 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 80%;
+    /* width: 80%; */
     margin-top: 15px;
+}
+
+.input-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    border: 1px solid #3f3d3d;
+    border-radius: 6px;
+}
+
+.input-container input{
+    height: 2.2rem;
+    width: 100%;
+    background-color: #F1F5FE;
+    border: none;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.input-container button{
+    background-color: #F1F5FE;
+    border: none;
+    height: 2.2rem;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 li{

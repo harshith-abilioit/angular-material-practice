@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  constructor( private api:ApiService ){};
+  constructor( private api:ApiService, private snackBar: MatSnackBar ){};
 
   productsList:any = [];
   searchedProductsList:any = [];
@@ -27,8 +28,24 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  token:any
+
+  showSnackbar(message: string, config?: MatSnackBarConfig): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      verticalPosition: 'top', 
+      ...config,
+    });
+  }
+
   addToCart(item:any){
-    this.api.addItemToCart(item)
+    this.token = localStorage.getItem("token");
+    if(this.token===null){
+      this.showSnackbar('Please Login to continue')
+    } else{
+      this.api.addItemToCart(item)
+    }
+    
    }
 
   searchedProducts(){

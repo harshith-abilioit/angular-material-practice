@@ -1,14 +1,18 @@
 <nav class="shopify-header">
-    <h1><a routerLink="products" class="logo">Shopify App</a></h1>
+    <h1><a routerLink="" class="logo">Shopify App</a></h1>
+    <div class="input-container">
+      <input type="search" placeholder="Search Products" />
+      <button><mat-icon aria-hidden="false" aria-label="Example search icon" fontIcon="search" class="search-icon"></mat-icon></button>
+    </div>
     <ul>
+      <li *ngIf="isAuthenticated()===false" ><a routerLink="login">Login</a></li>
       <li><a routerLink="">Home</a></li>
-      <li><a routerLink="login">Login</a></li>
-      <li><a routerLink="register">Register</a></li>
         <li><a routerLink="products">Products</a></li>
-        <li class="cart-link">
+        <li class="cart-link" *ngIf="isAuthenticated()">
           <a routerLink="cart">Cart</a>
           <p class="items-count" *ngIf="itemsCount > 0">{{ itemsCount }}</p>
         </li>
+        <button mat-raised-button color="warn" (click)="openDialog()" *ngIf="isAuthenticated()">Logout</button>
     </ul>
 </nav>
 <router-outlet></router-outlet>

@@ -5,13 +5,13 @@ import { CartComponent } from './components/cart/cart.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { AuthGuard } from './services/authguard.service';
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'products',component:ProductsComponent},
-  {path:'cart',component:CartComponent},
+  {path:'cart',component:CartComponent,canActivate: [AuthGuard]},
   {path:'register',component:RegisterComponent},
-  {path:'login',component:LoginComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({
