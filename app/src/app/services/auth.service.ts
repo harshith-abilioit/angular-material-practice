@@ -10,17 +10,15 @@ import { Router } from '@angular/router';
 
 export class AuthService {
 
-  constructor(private http:HttpClient,private snackBar: MatSnackBar,private router: Router){
+  constructor(private http:HttpClient,private _snackBar: MatSnackBar,private router: Router){
   }
   
   private tokenKey = 'token';
   private apiUrl = ' http://localhost:8000/login';
 
-  showSnackbar(message: string, config?: MatSnackBarConfig): void {
-    this.snackBar.open(message, 'Close', {
-      duration: 3000,
-      verticalPosition: 'top', 
-      ...config,
+  openSnackBar(message: string,action: string) {
+    this._snackBar.open(message, action,{
+      duration:2000
     });
   }
 
@@ -31,14 +29,14 @@ export class AuthService {
       .subscribe(
         response => {
           if(response.status===200){
-            this.showSnackbar(response.message);
+            this.openSnackBar(response.message,"close");
             console.log(response.token)
             localStorage.setItem(this.tokenKey,response.token);
             this.router.navigate(['/products']);            
           }
         },
         error => {
-          this.showSnackbar(error.error.message)
+          this.openSnackBar(error.error.message,"close")
         }
       );
   }

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
 
@@ -7,26 +7,21 @@ import { MatSnackBar,MatSnackBarConfig } from '@angular/material/snack-bar';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
-  constructor( private api:ApiService, private snackBar: MatSnackBar ){};
+export class ProductsComponent {
+  constructor( private api:ApiService, private snackBar: MatSnackBar ){
+    this.api.searchInput$.subscribe(input => {
+      this.searchInput = input;
+    });
 
-  productsList:any = [];
+    this.api.searchedProductsList$.subscribe(products => {
+      console.log(products,"list in products")
+      this.searchedProductsList = products;
+    });
+  };
+
   searchedProductsList:any = [];
   searchInput:any='';
   sortProductsBy:any='';
-
-  ngOnInit(): void {
-      this.api.fetchData().subscribe({
-        next: (response => {
-          this.productsList = response;
-          this.searchedProductsList=response;
-        }),
-        error : (error =>{
-          console.log(error)
-        })
-      })
-
-  }
 
   token:any
 
@@ -47,14 +42,6 @@ export class ProductsComponent implements OnInit {
     }
     
    }
-
-  searchedProducts(){
-      this.searchedProductsList = this.productsList.filter((eachItem:any)=>{
-        return eachItem.title.toLowerCase().includes(this.searchInput.toLowerCase())
-      })
-      // console.log(this.searchedProductsList)
-
-  }
     
   sortProducts(){
       if(this.sortProductsBy=='asc'){
@@ -63,13 +50,6 @@ export class ProductsComponent implements OnInit {
       else if(this.sortProductsBy=='desc'){
         this.searchedProductsList.sort((a:any, b:any) => b.price - a.price)
       } 
-      else{
-        // console.log(this.searchedProductsList,"before")
-        // this.searchedProductsList = this.productsList;
-        // console.log(this.searchedProductsList,"after")
-      }
   }
-
-     
 
 }

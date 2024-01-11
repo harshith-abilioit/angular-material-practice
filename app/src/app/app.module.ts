@@ -17,14 +17,13 @@ import { FormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { CartComponent } from './components/cart/cart.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +49,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
     FormsModule,
     MatSelectModule,
     MatProgressBarModule,
-    MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
     ],
   providers: [],
   bootstrap: [AppComponent]

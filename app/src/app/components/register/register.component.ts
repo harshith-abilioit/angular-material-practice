@@ -12,13 +12,11 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent{
 
-  constructor(private http:HttpClient,private snackBar: MatSnackBar,private router: Router) { }
+  constructor(private http:HttpClient,private _snackBar: MatSnackBar,private router: Router) { }
 
-  showSnackbar(message: string, config?: MatSnackBarConfig): void {
-    this.snackBar.open(message, 'Close', {
-      duration: 3000,
-      verticalPosition: 'top', 
-      ...config,
+  openSnackBar(message: string,action: string) {
+    this._snackBar.open(message, action,{
+      duration:2000
     });
   }
 
@@ -36,12 +34,12 @@ export class RegisterComponent{
       .subscribe(
         response => {
           if(response.status===200){
-            this.showSnackbar(response.message);
+            this.openSnackBar(response.message,"close");
             this.router.navigate(['/login']);
           }
         },
         error => {
-          this.showSnackbar(error.error.message);
+          this.openSnackBar(error.error.message,"close");
         }
       );
       // this.registerForm.setValue({

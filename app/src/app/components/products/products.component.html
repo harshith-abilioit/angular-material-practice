@@ -1,18 +1,10 @@
 <div>
     <div class="input-field-product">
-        <div class="input-search">
-            <mat-form-field class="example-full-width ">
-            <mat-label>Search Products</mat-label>
-            <input matInput [(ngModel)]="searchInput" (keyup.enter)="searchedProducts()" />
-            </mat-form-field>
-            <button (click)="searchedProducts()" ><mat-icon aria-hidden="false" aria-label="Example search icon" fontIcon="search" class="search-icon"></mat-icon></button>
-        </div>
         <div class="sort-cont">
             <label>sort by price</label>
             <mat-form-field>
                 <mat-label>select</mat-label>
                 <mat-select [(ngModel)]="sortProductsBy"  (ngModelChange)="sortProducts()" >
-                    <mat-option [value]="'null'">select</mat-option>
                     <mat-option [value]="'asc'">Low - High</mat-option>
                     <mat-option [value]="'desc'">High - Low</mat-option>
                 </mat-select>
@@ -33,7 +25,7 @@
         </mat-card>
     </ng-template>
         <ng-template #loader><mat-progress-bar mode="indeterminate" style="width:84%; margin-left:7rem"></mat-progress-bar></ng-template>
-        <div *ngIf="productsList.length>0 && searchedProductsList.length===0 && searchInput!=='' then noresult"></div>
+        <div *ngIf="searchedProductsList.length===0 && searchInput!=='' then noresult"></div>
         <ng-template #noresult>
             <h3 class="nores-head">No Results Found !!</h3>
         </ng-template>
