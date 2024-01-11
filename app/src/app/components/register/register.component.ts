@@ -21,7 +21,7 @@ export class RegisterComponent{
   }
 
   // @ViewChild('register') registerForm:any;
-  private apiUrl = ' http://localhost:8000/register';
+  private apiUrl = 'https://shopify-x81t.onrender.com/register';
   passwordType:any = 'password';
 
   showHidePassword(){

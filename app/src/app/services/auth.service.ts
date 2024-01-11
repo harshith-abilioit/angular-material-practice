@@ -14,7 +14,7 @@ export class AuthService {
   }
   
   private tokenKey = 'token';
-  private apiUrl = ' http://localhost:8000/login';
+  private apiUrl = 'https://shopify-x81t.onrender.com/login';
 
   openSnackBar(message: string,action: string) {
     this._snackBar.open(message, action,{
